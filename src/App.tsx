@@ -5,7 +5,7 @@ import Button, { ButtonSize, ButtonType } from './components/Button/button';
 function App() {
   return (
     <div className='App'>
-      <Button onClick={() => console.log('111')} className='custom'>
+      <Button disabled onClick={() => console.log('111')} className='custom'>
         click
       </Button>
       <Button btnType={ButtonType.Primary} size={ButtonSize.Small}>
