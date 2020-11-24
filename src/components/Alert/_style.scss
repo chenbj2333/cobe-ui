@@ -1,0 +1,38 @@
+.alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  border: 1px solid;
+  @include border-left-radius(4px);
+  @include border-right-radius(4px);
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.alert-default {
+  @include alert-style($primary, $primary, $black);
+}
+
+.alert-success {
+  @include alert-style($success, $success, $black);
+}
+
+.alert-error {
+  @include alert-style($danger, $danger, $black);
+}
+
+.alert-warning {
+  @include alert-style($warning, $warning, $black);
+}
+
+.alert-close {
+  cursor: pointer;
+}
+
+.alert-title {
+  font-size: $font-size-lg;
+  margin-bottom: 4px;
+}
