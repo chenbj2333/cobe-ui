@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 
-export enum AlertType {
-  Success = 'success',
-  Default = 'default',
-  Error = 'error',
-  Warning = 'warning',
-}
+export type AlertType = 'success' | 'default' | 'error' | 'warning';
 
 interface AlertProps {
   message: string | React.ReactNode;
@@ -45,7 +40,7 @@ const Alert: React.FC<AlertProps> = (props) => {
 
 Alert.defaultProps = {
   closable: false,
-  alertType: AlertType.Default,
+  alertType: 'default',
 };
 
 export default Alert;

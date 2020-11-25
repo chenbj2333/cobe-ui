@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import Alert, { AlertType } from './alert';
+import Alert from './alert';
 
 describe('test Alert component', () => {
   // 测试一个默认的alert
@@ -16,7 +16,7 @@ describe('test Alert component', () => {
       <Alert
         message='success info'
         description='Info Description Info Description Info Description Info Description'
-        alertType={AlertType.Success}
+        alertType='success'
       />
     );
     const parentNode = wrapper.queryByText('success info')?.parentNode;

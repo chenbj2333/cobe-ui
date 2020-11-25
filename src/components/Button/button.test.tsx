@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import Button, { ButtonSize, ButtonType } from './button';
+import Button from './button';
 
 const btnClkProps = {
   onClick: jest.fn(),
@@ -21,7 +21,7 @@ describe('test Button component', () => {
   // 测试传入其它props的按钮
   it('should render the correct component based on different props', () => {
     const wrapper = render(
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large} className='primaryLargeClass'>
+      <Button btnType='primary' size='lg' className='primaryLargeClass'>
         nice
       </Button>
     );
@@ -32,7 +32,7 @@ describe('test Button component', () => {
   // 测试一个link按钮
   it('should render a link when btnType equals link and href is provided', () => {
     const wrapper = render(
-      <Button btnType={ButtonType.Link} href='http://chenbj'>
+      <Button btnType='link' href='http://chenbj'>
         link
       </Button>
     );
