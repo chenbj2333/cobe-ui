@@ -33,7 +33,7 @@ function App() {
       >
         <MenuItem>candan1</MenuItem>
         <MenuItem disabled>candan2 disabled</MenuItem>
-        <SubMenu title='dropdwon'>
+        <SubMenu title='dropdown'>
           <MenuItem>sub-candan1</MenuItem>
         </SubMenu>
       </Menu>
