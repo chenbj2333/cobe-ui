@@ -11,12 +11,7 @@ const wrapperStyle: React.CSSProperties = {
   padding: '20px 40px',
 };
 
-const storyWrapper = (storyFn: any) => (
-  <div style={wrapperStyle}>
-    <h3>组件演示</h3>
-    {storyFn()}
-  </div>
-);
+const storyWrapper = (storyFn: any) => <div style={wrapperStyle}>{storyFn()}</div>;
 
 addDecorator(storyWrapper);
 addDecorator(withInfo);
