@@ -1,6 +1,7 @@
 import React from 'react';
 import Alert from './components/Alert/alert';
 import Button from './components/Button/button';
+import Icon from './components/Icon/icon';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
@@ -37,6 +38,7 @@ function App() {
           <MenuItem>sub-candan1</MenuItem>
         </SubMenu>
       </Menu>
+      <Icon icon='spinner' spin />
     </div>
   );
 }

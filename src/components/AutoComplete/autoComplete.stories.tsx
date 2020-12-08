@@ -1,38 +1,37 @@
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import AutoComplete, { DataSourceType } from './autoComplete';
 
-interface LakerPlayerProps {
-  value: string;
-  number: number;
+interface GithubUserProps {
+  login: string;
+  url: string;
+  avatar_url: string;
 }
 
 const simpleComplete = () => {
-  const lakersWithNumber: LakerPlayerProps[] = [
-    { value: 'bradley', number: 11 },
-    { value: 'pope', number: 1 },
-    { value: 'caruso', number: 4 },
-    { value: 'cook', number: 2 },
-    { value: 'cousins', number: 15 },
-    { value: 'james', number: 23 },
-    { value: 'AD', number: 3 },
-    { value: 'green', number: 14 },
-    { value: 'howard', number: 39 },
-    { value: 'kuzma', number: 0 },
-  ];
-
   const handleFetch = (query: string) => {
-    return lakersWithNumber.filter((name) => name.value.includes(query));
+    return fetch(`https://api.github.com/search/users?q=${query}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const formatItems = data.items.slice(0, 10).map((item: any) => {
+          return {
+            value: item.login,
+            ...item,
+          };
+        });
+        return formatItems;
+      });
   };
 
   const renderOption = (item: DataSourceType) => {
-    const itemWithGithub = item as DataSourceType<LakerPlayerProps>;
+    const itemWithGithub = item as DataSourceType<GithubUserProps>;
+
     return (
       <>
-        <h4>Name: {itemWithGithub.value}</h4>
-        <p>number: {itemWithGithub.number}</p>
+        <p>Name: {itemWithGithub.value}</p>
+        <p>url: {itemWithGithub.url}</p>
       </>
     );
   };
